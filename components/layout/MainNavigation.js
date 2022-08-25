@@ -6,10 +6,10 @@ function MainNavigation() {
   return (
     <header className={styles.header}>
       <div>
-        <h1>Välkommna till FC Krukan - Lirarnas Lag</h1>
+        <h2>Välkommna till FC Krukan - Lirarnas Lag</h2>
       </div>
       <nav>
-        <ul>
+        <ul className={styles.navList}>
           <li>
             <Link href="/">Start</Link>
           </li>

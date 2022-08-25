@@ -1,3 +1,25 @@
-.header ul {
+.header {
+  width: 100%;
+  height: 10rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 5%;
+  border: 1px solid blue;
+  background-color: rgb(128, 12, 12);
+}
+
+.header nav {
+  width: 100%;
+  margin: 0 auto;
+}
+
+.navList {
   list-style: none;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  font-size: 1.25rem;
+  color: rgb(180, 118, 181);
+  border: 1px solid green;
 }
