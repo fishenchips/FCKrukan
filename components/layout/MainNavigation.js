@@ -1,9 +1,10 @@
 import React from "react";
 import Link from "next/link";
+import styles from "./MainNavigation.module.css";
 
 function MainNavigation() {
   return (
-    <header>
+    <header className={styles.header}>
       <div>
         <h1>Välkommna till FC Krukan - Lirarnas Lag</h1>
       </div>
