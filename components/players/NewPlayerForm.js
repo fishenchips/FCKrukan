@@ -33,6 +33,31 @@ function NewPlayerForm() {
           ))}
         </select>
       </div>
+      <div>
+        <label>Position</label>
+        {/* needs more precision, and able to choose serveral positions */}
+        <select>
+          <option value="goal-keeper">Målvakt</option>
+          <option value="defender">Back</option>
+          <option value="midfielder">Mittfält</option>
+          <option value="striker">Anfall</option>
+        </select>
+      </div>
+      <div>
+        <label>Fot</label>
+        <select>
+          <option value="right">Höger</option>
+          <option value="left">Vänster</option>
+          <option value="both">Dubbelfotad</option>
+        </select>
+      </div>
+      <div>
+        <label>Moderklubb</label>
+        <input type="text" />
+      </div>
+      <div>
+        <button>Lägg till Spelare</button>
+      </div>
     </form>
   );
 }
