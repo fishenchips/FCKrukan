@@ -1,6 +1,14 @@
 import React, { useRef } from "react";
 
 function NewPlayerForm() {
+  let years = [];
+  let d = new Date();
+  let currentYear = d.getFullYear();
+
+  for (let i = currentYear - 15; i > currentYear - 50; i--) {
+    years.push(i);
+  }
+
   return (
     <form>
       <div>
@@ -17,7 +25,13 @@ function NewPlayerForm() {
       </div>
       <div>
         <label>Födelseår</label>
-        <select></select>
+        <select>
+          {years.map((year) => (
+            <option key={year} value={year}>
+              {year}
+            </option>
+          ))}
+        </select>
       </div>
     </form>
   );
