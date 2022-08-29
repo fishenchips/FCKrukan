@@ -4,7 +4,7 @@ import NewPlayerForm from "../../../components/players/NewPlayerForm";
 function RegisterPlayer() {
   return (
     <Fragment>
-      Create PLayer
+      <h2>Registrera ny spelare</h2>
       <NewPlayerForm />
     </Fragment>
   );
