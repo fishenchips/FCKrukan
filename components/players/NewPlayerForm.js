@@ -1,4 +1,7 @@
 import React, { useRef } from "react";
+import styles from "./NewPlayerForm.module.css";
+import { motion } from "framer-motion";
+import { inputHover } from "./../../styles/animations";
 
 function NewPlayerForm() {
   let years = [];
@@ -42,20 +45,25 @@ function NewPlayerForm() {
   };
 
   return (
-    <form onSubmit={submitHandler}>
-      <div>
+    <form onSubmit={submitHandler} className={styles.form}>
+      <div className={styles.formControl}>
         <label>Förnamn</label>
-        <input type="text" ref={firstNameInputRef} />
+        <motion.input
+          whileHover="hover"
+          variants={inputHover}
+          type="text"
+          ref={firstNameInputRef}
+        />
       </div>
-      <div>
+      <div className={styles.formControl}>
         <label>Efternamn</label>
         <input type="text" ref={lastNameInputRef} />
       </div>
-      <div>
+      <div className={styles.formControl}>
         <label>Bild</label>
         <input type="file" ref={imageInputRef} />
       </div>
-      <div>
+      <div className={styles.formControl}>
         <label>Födelseår</label>
         <select ref={yearInputRef}>
           {years.map((year) => (
@@ -65,7 +73,7 @@ function NewPlayerForm() {
           ))}
         </select>
       </div>
-      <div>
+      <div className={styles.formControl}>
         <label>Position</label>
         {/* needs more precision, and able to choose serveral positions */}
         <select ref={positionInputRef}>
@@ -75,7 +83,7 @@ function NewPlayerForm() {
           <option value="striker">Anfall</option>
         </select>
       </div>
-      <div>
+      <div className={styles.formControl}>
         <label>Fot</label>
         <select ref={footInputRef}>
           <option value="right">Höger</option>
@@ -83,7 +91,7 @@ function NewPlayerForm() {
           <option value="both">Dubbelfotad</option>
         </select>
       </div>
-      <div>
+      <div className={styles.formControl}>
         <label>Moderklubb</label>
         <input type="text" ref={parentClubInputRef} />
       </div>
