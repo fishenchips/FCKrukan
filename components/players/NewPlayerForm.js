@@ -1,7 +1,7 @@
 import React, { useRef } from "react";
 import styles from "./NewPlayerForm.module.css";
 import { motion } from "framer-motion";
-import { inputHover } from "./../../styles/animations";
+import { inputTap } from "./../../styles/animations";
 
 function NewPlayerForm() {
   let years = [];
@@ -49,8 +49,8 @@ function NewPlayerForm() {
       <div className={styles.formControl}>
         <label>Förnamn</label>
         <motion.input
-          whileHover="hover"
-          variants={inputHover}
+          whileTap="tap"
+          variants={inputTap}
           type="text"
           ref={firstNameInputRef}
         />
