@@ -3,7 +3,7 @@ import styles from "./NewPlayerForm.module.css";
 import { motion } from "framer-motion";
 import { inputTap } from "./../../styles/animations";
 
-function NewPlayerForm() {
+function NewPlayerForm(props) {
   let years = [];
   let d = new Date();
   let currentYear = d.getFullYear();
@@ -41,7 +41,8 @@ function NewPlayerForm() {
       parentClub: enteredParentClub,
     };
 
-    console.log(playerData);
+    /* want to send up data to the new player (ny-spelare) page */
+    props.onAddPlayer(playerData);
   };
 
   return (

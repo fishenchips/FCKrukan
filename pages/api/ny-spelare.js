@@ -13,7 +13,7 @@ async function handler(req, res) {
 
     const db = client.db();
 
-    const playerCollection = db.collection("players");
+    const playerCollection = db.collection("FCKrukan");
 
     /* insert an object with the needed parameters */
     const result = await playerCollection.insertOne(data);
