@@ -8,12 +8,14 @@ async function handler(req, res) {
 
     /* connecting to DB application, generic username and password for now - wont run on client side*/
     const client = await MongoClient.connect(
-      "mongodb+srv://philip:123@firstcluster.zwayv.mongodb.net/?retryWrites=true&w=majority"
+      /* adding FCKrukan to connect to right DB inside the cluster */
+      "mongodb+srv://philip:123@firstcluster.zwayv.mongodb.net/FCKrukan?retryWrites=true&w=majority"
     );
 
     const db = client.db();
 
-    const playerCollection = db.collection("FCKrukan");
+    /* players is the collection name within the FCKrukan DB */
+    const playerCollection = db.collection("players");
 
     /* insert an object with the needed parameters */
     const result = await playerCollection.insertOne(data);
