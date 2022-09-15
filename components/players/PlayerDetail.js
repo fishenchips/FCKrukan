@@ -3,7 +3,12 @@ import React from "react";
 function PlayerDetail(props) {
   return (
     <section>
-      <p> in here info about the player will be shown, img etc.</p>
+      {props.playersList.map((player) => (
+        <div key={player.id}>
+          <p>{player.lastName}</p>
+          <p>{player.firstName}</p>
+        </div>
+      ))}
     </section>
   );
 }
