@@ -2,11 +2,23 @@
 import styles from "../styles/Home.module.css";
 import { MongoClient } from "mongodb";
 
-export default function Home() {
+export default function Home(props) {
   /* FIRST TIME PAGE LOADS the array is empty (when sending request to backend),
   Which isnt great for search engine optimization, so we use getStaticProps*/
 
-  return <div className={styles.container}></div>;
+  return (
+    <div className={styles.container}>
+      <div>
+        {/* mapping thru pre rendered object works */}
+        {props.players.map((player) => (
+          <div>
+            <p>{player.lastName}</p>
+            <p>{player.firstName}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
 }
 
 /* nextJS looks for this first - preparing props, waiting for data is loaded and then renders */
