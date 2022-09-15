@@ -1,8 +1,10 @@
 import React, { Fragment } from "react";
 import Head from "next/head";
 import NewPlayerForm from "../../../components/players/NewPlayerForm";
+import { useRouter } from "next/router";
 
 function RegisterPlayer() {
+  const router = useRouter();
   /* adding a player to DB */
   const addPlayerHandler = async (enteredPlayerData) => {
     /* send request to API route, which triggers that function */
@@ -15,6 +17,9 @@ function RegisterPlayer() {
     const data = await response.json();
 
     console.log(data);
+
+    /* navigate away once submitted */
+    router.push("/truppen");
   };
 
   return (
