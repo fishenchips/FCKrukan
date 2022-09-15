@@ -1,20 +1,21 @@
 import React from "react";
 import Link from "next/link";
-import PlayerDetail from "../../components/players/PlayerDetail";
+import PlayerList from "../../components/players/PlayerList";
 import { MongoClient } from "mongodb";
 
 function SquadPage(props) {
   return (
     <React.Fragment>
       <h5>Spelartrupp</h5>
-      <PlayerDetail playersList={props.players} />
+      <PlayerList playersList={props.players} />
       <nav>
         <ul>
+          <label>Admin</label>
           <li>
             <Link href="/truppen/ny-spelare">Registera spelare</Link>
           </li>
           <li>
-            <Link href="/truppen/hej">as</Link>
+            <Link href="/truppen/redigera-spelare">Redigera spelare</Link>
           </li>
         </ul>
       </nav>
