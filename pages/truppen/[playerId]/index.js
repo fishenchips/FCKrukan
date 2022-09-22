@@ -1,12 +1,22 @@
 import React from "react";
-import PlayerDetail from "../../../components/players/PlayerDetail";
+import PlayerSinglePage from "../../../components/players/PlayerSinglePage";
 import { MongoClient, ObjectId } from "mongodb";
 import { APIKey } from "../../../keys/clientKey";
 
 function PlayerPage(props) {
   return (
     <div>
-      <PlayerDetail />
+      {/* need to send to PlayerPage directly - 
+      getStaticProps returns props object with playerData object inside */}
+      <PlayerSinglePage
+        firstName={props.playerData.firstName}
+        lastName={props.playerData.lastName}
+        image={props.playerData.image}
+        year={props.playerData.year}
+        position={props.playerData.position}
+        foot={props.playerData.foot}
+        parentClub={props.playerData.parentClub}
+      />
     </div>
   );
 }
@@ -52,7 +62,7 @@ export async function getStaticProps(context) {
   const playerCollection = db.collection("players");
 
   const selectedPlayer = await playerCollection.findOne({
-    _id: ObjectId(playerId), //converts the id from MongoDB to a string
+    _id: ObjectId(playerId), //converts the id string value to MongoDb ObjectId to find the right player
   });
 
   client.close();
@@ -60,7 +70,7 @@ export async function getStaticProps(context) {
   return {
     props: {
       playerData: {
-        id: selectedPlayer._id.toString(),
+        id: selectedPlayer._id.toString(), // converting back to string
         firstName: selectedPlayer.firstName,
         lastName: selectedPlayer.lastName,
         image: selectedPlayer.image,
