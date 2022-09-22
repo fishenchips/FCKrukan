@@ -17,7 +17,7 @@ function MainNavigation() {
             <Link href="/truppen">Spelartrupp</Link>
           </li>
           <li>
-            <Link href="/spelschema">Start</Link>
+            <Link href="/spelschema">Spelschema</Link>
           </li>
           <li>
             <Link href="/tabell">Tabell</Link>

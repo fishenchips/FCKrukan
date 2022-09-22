@@ -1,4 +1,5 @@
 import { MongoClient } from "mongodb";
+import { APIKey } from "../../keys/clientKey";
 
 /* Creating API route function to send query to my mongoDB cluster */
 
@@ -9,7 +10,7 @@ async function handler(req, res) {
     /* connecting to DB application, generic username and password for now - wont run on client side*/
     const client = await MongoClient.connect(
       /* adding FCKrukan to connect to right DB inside the cluster */
-      "mongodb+srv://philip:123@firstcluster.zwayv.mongodb.net/FCKrukan?retryWrites=true&w=majority"
+      APIKey
     );
 
     const db = client.db();
