@@ -7,11 +7,11 @@ import React from "react";
 function PlayerDetail(props) {
   return (
     <li>
-      <div>
+      <div onClick={playerPageHandler}>
         <h4>
           {props.firstName} {props.lastName}
         </h4>
-        <img src={props.image} />
+        {/* <img src={props.image} /> */}
       </div>
     </li>
   );

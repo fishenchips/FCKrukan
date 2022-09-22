@@ -1,9 +1,9 @@
 import React from "react";
 import PlayerDetail from "../../../components/players/PlayerDetail";
-import { MongoClient } from "mongodb";
+import { MongoClient, ObjectId } from "mongodb";
 import { APIKey } from "../../../keys/clientKey";
 
-function PlayerPage() {
+function PlayerPage(props) {
   return (
     <div>
       <PlayerDetail />
@@ -37,6 +37,39 @@ export async function getStaticPaths() {
         playerId: player._id.toString(),
       },
     })),
+  };
+}
+
+/* since its dynamic, it needs to pre generate all dynamic pages */
+export async function getStaticProps(context) {
+  /* Fetch data for single meetup */
+  const playerId = context.params.playerId;
+
+  const client = await MongoClient.connect(APIKey);
+
+  const db = client.db();
+
+  const playerCollection = db.collection("players");
+
+  const selectedPlayer = await playerCollection.findOne({
+    _id: ObjectId(playerId), //converts the id from MongoDB to a string
+  });
+
+  client.close();
+
+  return {
+    props: {
+      playerData: {
+        id: selectedPlayer._id.toString(),
+        firstName: selectedPlayer.firstName,
+        lastName: selectedPlayer.lastName,
+        image: selectedPlayer.image,
+        year: selectedPlayer.year,
+        position: selectedPlayer.position,
+        foot: selectedPlayer.foot,
+        parentClub: selectedPlayer.parentClub,
+      },
+    },
   };
 }
 
