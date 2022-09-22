@@ -1,11 +1,28 @@
-import React from "react";
+import React, { Fragment } from "react";
 import PlayerSinglePage from "../../../components/players/PlayerSinglePage";
 import { MongoClient, ObjectId } from "mongodb";
 import { APIKey } from "../../../keys/clientKey";
+import Head from "next/head";
 
 function PlayerPage(props) {
   return (
-    <div>
+    <Fragment>
+      <Head>
+        <title>
+          {props.playerData.firstName} {props.playerData.lastName}
+        </title>
+        <meta
+          name="description"
+          content={
+            props.playerData.firstName +
+            " " +
+            props.playerData.lastName +
+            ", " +
+            "FC Krukan."
+          }
+        />
+      </Head>
+
       {/* need to send to PlayerPage directly - 
       getStaticProps returns props object with playerData object inside */}
       <PlayerSinglePage
@@ -17,7 +34,7 @@ function PlayerPage(props) {
         foot={props.playerData.foot}
         parentClub={props.playerData.parentClub}
       />
-    </div>
+    </Fragment>
   );
 }
 
